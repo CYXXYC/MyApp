@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/studylayout"
+    android:background="#33ff33">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/back"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"/>
+    <Button
+        android:id="@+id/studymode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:textSize="30dp"
+        android:text="学习模式"
+        android:drawableRight="@mipmap/smile"/>
+
+
+
+    <ImageView
+        android:id="@+id/tasklist"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/tasklist1"
+        android:layout_alignTop="@+id/back"
+        android:layout_alignParentEnd="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="100dp"
+            android:text="0"/>
+        <TextView
+            android:id="@+id/texthour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/hour"
+            android:layout_alignBottom="@+id/hour"
+            android:layout_marginBottom="25dp"
+            android:text="@string/hour"/>
+        <TextView
+            android:id="@+id/minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="100dp"
+            android:layout_toEndOf="@+id/texthour"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/minute"
+            android:layout_alignBottom="@+id/minute"
+            android:layout_marginBottom="25dp"
+            android:text="@string/minute"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/studystate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:textSize="25dp"
+        android:background="@drawable/tangle"
+        android:text="开始学习"/>
+
+</RelativeLayout>
