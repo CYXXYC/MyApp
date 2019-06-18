@@ -1,3 +1,3 @@
-# Manager App
+# MyApp
 
-This is an app for you to manage your time in college.
+This is an app for you to manage your  time in college life.
