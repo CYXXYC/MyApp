@@ -59,7 +59,8 @@ public class AgendaActivity extends Activity {
         dataBaseOperator = new DataBaseOperator(AgendaActivity.this);
 
         addagenda = (Button)findViewById(R.id.agenda_add);
-        deleteagenda = (Button)findViewById(R.id.agenda_delete);
+
+        initAgendaListView();//显示agendaList
 
         addagenda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +97,18 @@ public class AgendaActivity extends Activity {
         EditText editTime = (EditText)findViewById(R.id.add_time);
         EditText editThing = (EditText)findViewById(R.id.add_thing);
         //日期和内容是必须的，没有设置时间就默认零点提醒
-        if (TextUtils.isEmpty(editThing.getText().toString())){
+        if (editThing == null || TextUtils.isEmpty(editThing.getText().toString())){
             Toast.makeText(this,"要提醒你什么呀",Toast.LENGTH_LONG).show();
         }
-        else if(TextUtils.isEmpty(editDate.getText().toString())) {
+        else if(editDate == null || TextUtils.isEmpty(editDate.getText().toString())) {
             Toast.makeText(this,"哪天提醒你呀",Toast.LENGTH_LONG).show();
+        }else if (dataBaseOperator.timeHaveAdded(editTime.getText().toString())){
+            Toast.makeText(this,"该时间段已有安排",Toast.LENGTH_LONG).show();
+        }else if (dataBaseOperator.thingHaveAdded(editThing.getText().toString())){
+            Toast.makeText(this,"该事件已存在",Toast.LENGTH_LONG).show();
         }else{
             dataBaseOperator.addData(editDate.getText().toString(),editTime.getText().toString(),editThing.getText().toString(),0,0,0,0,0);
+            Toast.makeText(this,"成功添加^_^",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -141,6 +147,25 @@ public class AgendaActivity extends Activity {
             super();
             myDataBaseHelper = new MyDataBaseHelper(context);
         }
+
+        public boolean thingHaveAdded(String thing){
+            SQLiteDatabase db = myDataBaseHelper.getReadableDatabase();
+            Cursor cursor = db.query(myDataBaseHelper.TABLE_NAME,null,"thing = ?",new String[]{thing},null,null,null);
+            if (cursor!=null && cursor.getCount() > 0)
+                return false;
+            else
+                return true;
+        }
+
+        public boolean timeHaveAdded(String time){
+            SQLiteDatabase db = myDataBaseHelper.getReadableDatabase();
+            Cursor cursor = db.query(myDataBaseHelper.TABLE_NAME,null,"time = ?",new String[]{time},null,null,null);
+            if (cursor!=null && cursor.getCount() > 0)
+                return false;
+            else
+                return true;
+        }
+
         public void addData(String date, String time, String thing, int year, int month, int day, int hour, int minute){
             SQLiteDatabase db = myDataBaseHelper.getWritableDatabase();
             ContentValues cv = new ContentValues();

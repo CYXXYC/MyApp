@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <RadioButton
+            android:id="@+id/learnradio"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/learnbutton"
+            android:checked="true"
+            android:drawableTop="@drawable/tabradio_learn"
+            style="@style/RadioStyle"/>
+
+        <RadioButton
+            android:id="@+id/noteradio"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/notebutton"
+            android:drawableTop="@drawable/tabradio_note"
+            style="@style/RadioStyle"/>
+
+        <RadioButton
+            android:id="@+id/exerciseradio"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/dongbutton"
+            android:drawableTop="@drawable/tabradio_exercise"
+            style="@style/RadioStyle"/>
+
+    </RadioGroup>
+
+</LinearLayout>

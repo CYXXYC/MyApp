@@ -3,4 +3,10 @@
     <string name="daydaystudy">好好学习</string>
     <string name="hour">时</string>
     <string name="minute">分</string>
+    <string name="learnbutton">好好学习</string>
+    <string name="dongbutton">快乐运动</string>
+    <string name="notebutton">备忘记录</string>
+    <string name="learnfrag">好好学习</string>
+    <string name="dongfrag">快乐运动</string>
+    <string name="notefrag">备忘记录</string>
 </resources>
